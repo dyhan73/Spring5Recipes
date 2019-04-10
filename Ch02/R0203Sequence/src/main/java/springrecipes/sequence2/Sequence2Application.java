@@ -23,6 +23,7 @@ public class Sequence2Application {
         System.out.println(sequenceService.generate("IT"));
 
         System.out.println("asdf");
+        System.out.println("asdf");
     }
 
 }
