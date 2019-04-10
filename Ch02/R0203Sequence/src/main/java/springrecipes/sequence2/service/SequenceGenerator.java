@@ -3,11 +3,13 @@ package springrecipes.sequence2.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import javax.annotation.Resource;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class SequenceGenerator {
-    @Autowired
-    @Qualifier("datePrefixGenerator")
+//    @Autowired
+//    @Qualifier("datePrefixGenerator")
+    @Resource
     private PrefixGenerator prefixGenerator;
     // private PrefixGenerator[] prefixGenerators;
     // private List<PrefixGenerator> prefixGenerators;
@@ -39,11 +41,9 @@ public class SequenceGenerator {
     }
 
     public String getSequence() {
-        StringBuilder builder = new StringBuilder();
-        builder.append(prefixGenerator.getPrefix())
-                .append(initial)
-                .append(counter.getAndIncrement())
-                .append(suffix);
-        return builder.toString();
+        return prefixGenerator.getPrefix()
+                + initial
+                + counter.getAndIncrement()
+                + suffix;
     }
 }
