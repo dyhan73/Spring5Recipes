@@ -21,6 +21,8 @@ public class Sequence2Application {
         SequenceService sequenceService = context.getBean("sequenceService", SequenceService.class);
         System.out.println(sequenceService.generate("IT"));
         System.out.println(sequenceService.generate("IT"));
+
+        System.out.println("asdf");
     }
 
 }
