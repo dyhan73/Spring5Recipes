@@ -1,12 +1,22 @@
 package springrecipes.r0208;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.io.*;
 import java.util.Date;
 
+@Component
 public class Cashier {
 
+    @Value("checkout")
     private String fileName;
+
+    @Value("/tmp/cashier")
     private String path;
+
     private BufferedWriter writer;
 
     public void setFileName(String fileName) {
@@ -17,6 +27,7 @@ public class Cashier {
         this.path = path;
     }
 
+    @PostConstruct
     public void openFile() throws IOException {
         File targetDir = new File(path);
         if (!targetDir.exists()) {
@@ -37,6 +48,7 @@ public class Cashier {
         writer.flush();
     }
 
+    @PreDestroy
     public void closeFile() throws IOException {
         writer.close();
         System.out.println("file closed");

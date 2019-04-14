@@ -9,14 +9,14 @@ import springrecipes.r0208.domain.Product;
 @Configuration
 public class ShopConfig {
 
-    @Bean(initMethod = "openFile", destroyMethod = "closeFile")
-    public Cashier cashier() {
-        String path = System.getProperty("java.io.tmpdir") + "/cashier";
-        Cashier c1 = new Cashier();
-        c1.setFileName("checkout");
-        c1.setPath(path);
-        return c1;
-    }
+//    @Bean(initMethod = "openFile", destroyMethod = "closeFile")
+//    public Cashier cashier() {
+//        String path = System.getProperty("java.io.tmpdir") + "/cashier";
+//        Cashier c1 = new Cashier();
+//        c1.setFileName("checkout");
+//        c1.setPath(path);
+//        return c1;
+//    }
 
     @Bean
     public Product aaa() {
