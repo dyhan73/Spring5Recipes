@@ -16,6 +16,13 @@ public class R0210Application {
         Product aaa = context.getBean("aaa", Product.class);
 
         System.out.println(aaa);
+
+        try {
+            Product discountAAA = context.getBean("discountFactoryBeanAAA", Product.class);
+            System.out.println("discountAAA : " + discountAAA);
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
     }
 
 }
