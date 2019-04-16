@@ -11,7 +11,7 @@ public class Ch02AopApplication implements CommandLineRunner {
     private final ArithmeticCalculator arithmeticCalculator;
     private final UnitCalculator unitCalculator;
 
-    @Autowired
+    // @Autowired // is not needed when injected class has only one constructor
     public Ch02AopApplication(ArithmeticCalculator arithmeticCalculator, UnitCalculator unitCalculator) {
         this.arithmeticCalculator = arithmeticCalculator;
         this.unitCalculator = unitCalculator;
