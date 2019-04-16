@@ -5,23 +5,19 @@ import org.apache.commons.logging.LogFactory;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
 @Aspect
 @Component
-public class CalculatorLoggingAspect implements Ordered {
+@Order(1)
+public class CalculatorLoggingAspect {
 
     private Log log = LogFactory.getLog(this.getClass());
 
-    @Override
-    public int getOrder() {
-        return 1;
-    }
-
-    //    @Before("execution(* springrecipes.aop.*.*(..))")
+//    @Before("execution(* springrecipes.aop.*.*(..))")
 //    public void logJoinPoint(JoinPoint joinPoint) {
 //        log.info("Join point kind : " + joinPoint.getKind());
 //        log.info("Signature declaring type : " + joinPoint.getSignature().getDeclaringTypeName());
