@@ -7,13 +7,18 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class Ch02AopApplication implements CommandLineRunner {
+
+    private final ArithmeticCalculator arithmeticCalculator;
+    private final UnitCalculator unitCalculator;
+
     @Autowired
-    private ArithmeticCalculator arithmeticCalculator;
-    @Autowired
-    private UnitCalculator unitCalculator;
+    public Ch02AopApplication(ArithmeticCalculator arithmeticCalculator, UnitCalculator unitCalculator) {
+        this.arithmeticCalculator = arithmeticCalculator;
+        this.unitCalculator = unitCalculator;
+    }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         System.out.println(arithmeticCalculator.add(1.2, 2.4));
         System.out.println(unitCalculator.kilogramToPound(74.1));
     }
