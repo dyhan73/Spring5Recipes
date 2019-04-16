@@ -26,6 +26,11 @@ public class Ch02AopApplication implements CommandLineRunner {
         } catch (Exception e) {
             System.out.println("Exception : " + e.getMessage());
         }
+        try {
+            System.out.println(arithmeticCalculator.add(1.2, -2.4));
+        } catch (Exception e) {
+            System.out.println("Exception : " + e.getMessage());
+        }
     }
 
     public static void main(String[] args) {

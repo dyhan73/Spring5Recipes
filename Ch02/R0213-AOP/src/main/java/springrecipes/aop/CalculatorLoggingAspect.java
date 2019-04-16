@@ -15,15 +15,15 @@ public class CalculatorLoggingAspect {
 
     private Log log = LogFactory.getLog(this.getClass());
 
-    @Before("execution(* springrecipes.aop.*.*(..))")
-    public void logJoinPoint(JoinPoint joinPoint) {
-        log.info("Join point kind : " + joinPoint.getKind());
-        log.info("Signature declaring type : " + joinPoint.getSignature().getDeclaringTypeName());
-        log.info("Signature name : " + joinPoint.getSignature().getName());
-        log.info("Arguments : " + Arrays.toString(joinPoint.getArgs()));
-        log.info("Target class : " + joinPoint.getTarget().getClass().getName());
-        log.info("This class : " + joinPoint.getThis().getClass().getName());
-    }
+//    @Before("execution(* springrecipes.aop.*.*(..))")
+//    public void logJoinPoint(JoinPoint joinPoint) {
+//        log.info("Join point kind : " + joinPoint.getKind());
+//        log.info("Signature declaring type : " + joinPoint.getSignature().getDeclaringTypeName());
+//        log.info("Signature name : " + joinPoint.getSignature().getName());
+//        log.info("Arguments : " + Arrays.toString(joinPoint.getArgs()));
+//        log.info("Target class : " + joinPoint.getTarget().getClass().getName());
+//        log.info("This class : " + joinPoint.getThis().getClass().getName());
+//    }
 
 
 //    @Around("execution(* springrecipes.aop.*.*(..))")
@@ -45,12 +45,12 @@ public class CalculatorLoggingAspect {
 //        }
 //    }
 
-//    @Before("execution(* springrecipes.aop.*.*(..))")
-//    public void logBefore(JoinPoint joinPoint) {
-//        log.info("The method " + joinPoint.getSignature().getName() +
-//                "() begins with " + Arrays.toString(joinPoint.getArgs()));
-//    }
-//
+    @Before("execution(* springrecipes.aop.*.*(..))")
+    public void logBefore(JoinPoint joinPoint) {
+        log.info("The method " + joinPoint.getSignature().getName() +
+                "() begins with " + Arrays.toString(joinPoint.getArgs()));
+    }
+
 //    @After("execution(* springrecipes.aop.*.*(..))")
 //    public void logAfter(JoinPoint joinPoint) {
 //        log.info("The method " + joinPoint.getSignature().getName() + "() ends");
