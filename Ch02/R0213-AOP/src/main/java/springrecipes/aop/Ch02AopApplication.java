@@ -20,6 +20,12 @@ public class Ch02AopApplication implements CommandLineRunner {
     public void run(String... args) {
         System.out.println(arithmeticCalculator.add(1.2, 2.4));
         System.out.println(unitCalculator.kilogramToPound(74.1));
+
+        try {
+            System.out.println(arithmeticCalculator.div(4.2, 0));
+        } catch (Exception e) {
+            System.out.println("Exception : " + e.getMessage());
+        }
     }
 
     public static void main(String[] args) {

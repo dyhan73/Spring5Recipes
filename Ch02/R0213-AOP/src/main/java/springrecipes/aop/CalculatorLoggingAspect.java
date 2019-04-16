@@ -3,10 +3,7 @@ package springrecipes.aop;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -33,5 +30,12 @@ public class CalculatorLoggingAspect {
             returning = "result")
     public void logAfterReturning(JoinPoint joinPoint, Object result) {
         log.info("The method " + joinPoint.getSignature().getName() + "() ends with " + result);
+    }
+
+    @AfterThrowing(
+            pointcut = "execution(* springrecipes.aop.*.*(..))",
+            throwing = "e")
+    public void logAfterThrowing(JoinPoint joinPoint, Throwable e) {
+        log.error("An exception " + e + " has been thrown in " + joinPoint.getSignature().getName() + "()");
     }
 }
