@@ -1,8 +1,5 @@
 package springrecipes.aop;
 
-import org.springframework.stereotype.Component;
-
-@Component("unitCalculator")
 public class UnitCalculatorImpl implements UnitCalculator {
     @Override
     public double kilogramToPound(double kilogram) {

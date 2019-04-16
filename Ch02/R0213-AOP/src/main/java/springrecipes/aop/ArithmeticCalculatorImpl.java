@@ -1,9 +1,6 @@
 package springrecipes.aop;
 
-import org.springframework.stereotype.Component;
-
-@Component("arithmeticCalculator")
-public class ArithemticCalculatorImpl implements ArithmeticCalculator {
+public class ArithmeticCalculatorImpl implements ArithmeticCalculator {
     @Override
     public double add(double a, double b) {
         double result = a + b;
