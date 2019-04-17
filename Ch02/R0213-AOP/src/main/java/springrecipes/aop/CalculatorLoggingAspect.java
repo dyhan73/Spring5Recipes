@@ -23,10 +23,10 @@ public class CalculatorLoggingAspect {
                 "() begins with " + Arrays.toString(joinPoint.getArgs()));
     }
 
-    @After("execution(* springrecipes.aop.*.*(..))")
-    public void logAfter(JoinPoint joinPoint) {
-        log.info("The method " + joinPoint.getSignature().getName() + "() ends");
-    }
+//    @After("execution(* springrecipes.aop.*.*(..))")
+//    public void logAfter(JoinPoint joinPoint) {
+//        log.info("The method " + joinPoint.getSignature().getName() + "() ends");
+//    }
 
     @AfterReturning(
             pointcut = "CalculatorPointcuts.loggingOperation()",

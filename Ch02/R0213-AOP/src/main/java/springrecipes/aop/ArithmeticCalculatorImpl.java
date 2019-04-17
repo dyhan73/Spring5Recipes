@@ -1,5 +1,6 @@
 package springrecipes.aop;
 
+@LoggingRequired
 public class ArithmeticCalculatorImpl implements ArithmeticCalculator {
     @Override
     public double add(double a, double b) {
