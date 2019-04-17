@@ -7,6 +7,7 @@ import org.aspectj.lang.annotation.Pointcut;
 public class CalculatorPointcuts {
 
 //    @Pointcut("execution(* springrecipes.aop.*.*(..))")
-    @Pointcut("@annotation(springrecipes.aop.LoggingRequired)")
+//    @Pointcut("@annotation(springrecipes.aop.LoggingRequired)")
+    @Pointcut("within(UnitCalculatorImpl)")
     public void loggingOperation() {}
 }
