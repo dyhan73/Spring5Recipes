@@ -3,6 +3,7 @@ package springrecipes.aop;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import springrecipes.aop.aspect.Counter;
 import springrecipes.aop.calculator.ArithmeticCalculator;
 import springrecipes.aop.calculator.MaxCalculator;
 import springrecipes.aop.calculator.MinCalculator;
@@ -41,6 +42,12 @@ public class Ch02AopApplication implements CommandLineRunner {
 
         MinCalculator minCalculator = (MinCalculator) arithmeticCalculator;
         minCalculator.min(1, 2);
+
+        Counter arithmeticCounter = (Counter) arithmeticCalculator;
+        System.out.println("Arithmetic Counter : " + arithmeticCounter.getCount());
+
+        Counter unitCounter = (Counter) unitCalculator;
+        System.out.println("Unit Counter : " + unitCounter.getCount());
     }
 
     public static void main(String[] args) {
