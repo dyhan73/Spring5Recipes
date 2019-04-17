@@ -8,6 +8,6 @@ public class CalculatorPointcuts {
 
 //    @Pointcut("execution(* springrecipes.aop.*.*(..))")
 //    @Pointcut("@annotation(springrecipes.aop.LoggingRequired)")
-    @Pointcut("within(UnitCalculator+)")
+    @Pointcut("within(UnitCalculator+) || within(ArithmeticCalculator+)")
     public void loggingOperation() {}
 }
