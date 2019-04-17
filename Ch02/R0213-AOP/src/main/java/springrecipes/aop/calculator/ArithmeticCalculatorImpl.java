@@ -1,4 +1,6 @@
-package springrecipes.aop;
+package springrecipes.aop.calculator;
+
+import springrecipes.aop.aspect.LoggingRequired;
 
 public class ArithmeticCalculatorImpl implements ArithmeticCalculator {
     @Override

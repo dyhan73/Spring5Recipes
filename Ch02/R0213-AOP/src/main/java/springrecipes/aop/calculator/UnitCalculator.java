@@ -1,4 +1,4 @@
-package springrecipes.aop;
+package springrecipes.aop.calculator;
 
 public interface UnitCalculator {
     double kilogramToPound(double kilogram);

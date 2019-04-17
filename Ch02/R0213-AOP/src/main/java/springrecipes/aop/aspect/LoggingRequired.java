@@ -1,4 +1,4 @@
-package springrecipes.aop;
+package springrecipes.aop.aspect;
 
 import java.lang.annotation.*;
 

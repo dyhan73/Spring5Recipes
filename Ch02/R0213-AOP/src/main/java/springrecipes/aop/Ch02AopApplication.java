@@ -3,6 +3,8 @@ package springrecipes.aop;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import springrecipes.aop.calculator.ArithmeticCalculator;
+import springrecipes.aop.calculator.UnitCalculator;
 
 @SpringBootApplication
 public class Ch02AopApplication implements CommandLineRunner {

@@ -1,4 +1,4 @@
-package springrecipes.aop;
+package springrecipes.aop.calculator;
 
 public class UnitCalculatorImpl implements UnitCalculator {
     @Override

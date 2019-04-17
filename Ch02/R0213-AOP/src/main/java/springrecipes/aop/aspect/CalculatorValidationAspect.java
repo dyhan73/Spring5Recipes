@@ -1,4 +1,4 @@
-package springrecipes.aop;
+package springrecipes.aop.aspect;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -16,7 +16,7 @@ public class CalculatorValidationAspect {
     private Log log = LogFactory.getLog(this.getClass());
 
 //    @Before("execution(* springrecipes.aop.*.*(double, double))")
-    @Before("CalculatorPointcuts.loggingOperation()")
+    @Before("springrecipes.aop.aspect.CalculatorPointcuts.loggingOperation()")
     public void validateBefore(JoinPoint joinPoint) {
         log.info("Start argument validation");
         for (Object arg : joinPoint.getArgs()) {

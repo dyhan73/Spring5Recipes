@@ -1,4 +1,4 @@
-package springrecipes.aop;
+package springrecipes.aop.aspect;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -17,19 +17,19 @@ public class CalculatorLoggingAspect {
 
     private Log log = LogFactory.getLog(this.getClass());
 
-    @Before("CalculatorPointcuts.loggingOperation() && target(target) && args(a, b)")
+    @Before("springrecipes.aop.aspect.CalculatorPointcuts.loggingOperation() && target(target) && args(a, b)")
     public void logParameter(Object target, double a, double b) {
         log.info("Target class : " + target.getClass().getName());
         log.info("Arguments : " + a + ", " + b);
     }
 
-    @Before("CalculatorPointcuts.loggingOperation() && target(target) && args(a)")
+    @Before("springrecipes.aop.aspect.CalculatorPointcuts.loggingOperation() && target(target) && args(a)")
     public void logParameterSingle(Object target, double a) {
         log.info("Target class : " + target.getClass().getName());
         log.info("Arguments : " + a);
     }
 
-    @Before("CalculatorPointcuts.loggingOperation()")
+    @Before("springrecipes.aop.aspect.CalculatorPointcuts.loggingOperation()")
     public void logBefore(JoinPoint joinPoint) {
         log.info("The method " + joinPoint.getSignature().getName() +
                 "() begins with " + Arrays.toString(joinPoint.getArgs()));
@@ -41,20 +41,20 @@ public class CalculatorLoggingAspect {
 //    }
 
     @AfterReturning(
-            pointcut = "CalculatorPointcuts.loggingOperation()",
+            pointcut = "springrecipes.aop.aspect.CalculatorPointcuts.loggingOperation()",
             returning = "result")
     public void logAfterReturning(JoinPoint joinPoint, Object result) {
         log.info("The method " + joinPoint.getSignature().getName() + "() ends with " + result);
     }
 
     @AfterThrowing(
-            pointcut = "CalculatorPointcuts.loggingOperation()",
+            pointcut = "springrecipes.aop.aspect.CalculatorPointcuts.loggingOperation()",
             throwing = "e")
     public void logAfterThrowing(JoinPoint joinPoint, Throwable e) {
         log.error("An exception " + e + " has been thrown in " + joinPoint.getSignature().getName() + "()");
     }
 
-    @Around("CalculatorPointcuts.loggingOperation()")
+    @Around("springrecipes.aop.aspect.CalculatorPointcuts.loggingOperation()")
     public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
         log.info(String.format("The method %s() begins with %s"
                 , joinPoint.getSignature().getName()
