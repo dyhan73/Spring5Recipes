@@ -1,8 +1,8 @@
 package springrecipes.aop;
 
-@LoggingRequired
 public class ArithmeticCalculatorImpl implements ArithmeticCalculator {
     @Override
+    @LoggingRequired
     public double add(double a, double b) {
         double result = a + b;
         System.out.println(a + " + " + b + " = " + result);
