@@ -4,6 +4,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import springrecipes.aop.calculator.ArithmeticCalculator;
+import springrecipes.aop.calculator.MaxCalculator;
+import springrecipes.aop.calculator.MinCalculator;
 import springrecipes.aop.calculator.UnitCalculator;
 
 @SpringBootApplication
@@ -33,6 +35,12 @@ public class Ch02AopApplication implements CommandLineRunner {
         } catch (Exception e) {
             System.out.println("Exception : " + e.getMessage());
         }
+
+        MaxCalculator maxCalculator = (MaxCalculator) arithmeticCalculator;
+        maxCalculator.max(1, 2);
+
+        MinCalculator minCalculator = (MinCalculator) arithmeticCalculator;
+        minCalculator.min(1, 2);
     }
 
     public static void main(String[] args) {
