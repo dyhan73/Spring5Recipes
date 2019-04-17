@@ -17,6 +17,18 @@ public class CalculatorLoggingAspect {
 
     private Log log = LogFactory.getLog(this.getClass());
 
+    @Before("CalculatorPointcuts.loggingOperation() && target(target) && args(a, b)")
+    public void logParameter(Object target, double a, double b) {
+        log.info("Target class : " + target.getClass().getName());
+        log.info("Arguments : " + a + ", " + b);
+    }
+
+    @Before("CalculatorPointcuts.loggingOperation() && target(target) && args(a)")
+    public void logParameterSingle(Object target, double a) {
+        log.info("Target class : " + target.getClass().getName());
+        log.info("Arguments : " + a);
+    }
+
     @Before("CalculatorPointcuts.loggingOperation()")
     public void logBefore(JoinPoint joinPoint) {
         log.info("The method " + joinPoint.getSignature().getName() +
