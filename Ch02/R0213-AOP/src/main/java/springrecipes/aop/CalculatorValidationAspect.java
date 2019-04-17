@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-@Order(0)
+@Order(1)
 public class CalculatorValidationAspect {
 
     private Log log = LogFactory.getLog(this.getClass());
