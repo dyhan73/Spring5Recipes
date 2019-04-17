@@ -15,11 +15,16 @@ public class CalculatorValidationAspect {
 
     private Log log = LogFactory.getLog(this.getClass());
 
-    @Before("execution(* springrecipes.aop.*.*(double, double))")
+//    @Before("execution(* springrecipes.aop.*.*(double, double))")
+    @Before("CalculatorPointcuts.loggingOperation()")
     public void validateBefore(JoinPoint joinPoint) {
         log.info("Start argument validation");
         for (Object arg : joinPoint.getArgs()) {
-            validate((Double) arg);
+            try {
+                validate((Double) arg);
+            } catch (Exception e) {
+                System.out.println("pram is not double");
+            }
         }
     }
 

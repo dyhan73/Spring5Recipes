@@ -17,10 +17,7 @@ public class CalculatorLoggingAspect {
 
     private Log log = LogFactory.getLog(this.getClass());
 
-    @Pointcut("execution(* springrecipes.aop.*.*(..))")
-    private void loggingOperation() {}
-
-    @Before("loggingOperation()")
+    @Before("CalculatorPointcuts.loggingOperation()")
     public void logBefore(JoinPoint joinPoint) {
         log.info("The method " + joinPoint.getSignature().getName() +
                 "() begins with " + Arrays.toString(joinPoint.getArgs()));
@@ -32,20 +29,20 @@ public class CalculatorLoggingAspect {
     }
 
     @AfterReturning(
-            pointcut = "loggingOperation()",
+            pointcut = "CalculatorPointcuts.loggingOperation()",
             returning = "result")
     public void logAfterReturning(JoinPoint joinPoint, Object result) {
         log.info("The method " + joinPoint.getSignature().getName() + "() ends with " + result);
     }
 
     @AfterThrowing(
-            pointcut = "loggingOperation()",
+            pointcut = "CalculatorPointcuts.loggingOperation()",
             throwing = "e")
     public void logAfterThrowing(JoinPoint joinPoint, Throwable e) {
         log.error("An exception " + e + " has been thrown in " + joinPoint.getSignature().getName() + "()");
     }
 
-    @Around("loggingOperation()")
+    @Around("CalculatorPointcuts.loggingOperation()")
     public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
         log.info(String.format("The method %s() begins with %s"
                 , joinPoint.getSignature().getName()
