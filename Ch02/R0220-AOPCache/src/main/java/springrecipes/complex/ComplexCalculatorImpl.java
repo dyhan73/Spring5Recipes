@@ -1,4 +1,4 @@
-package springrecipes.aop.calculator;
+package springrecipes.complex;
 
 import org.springframework.stereotype.Component;
 

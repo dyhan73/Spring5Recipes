@@ -1,4 +1,4 @@
-package springrecipes.aop.calculator;
+package springrecipes.complex;
 
 public interface ComplexCalculator {
     Complex add(Complex a, Complex b);
