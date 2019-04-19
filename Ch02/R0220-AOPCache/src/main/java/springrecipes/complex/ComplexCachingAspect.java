@@ -14,7 +14,6 @@ public class ComplexCachingAspect {
 
     @Around("call(public Complex.new(int, int)) && args(a, b)")
     public Object cacheAround(ProceedingJoinPoint joinPoint, int a, int b) throws Throwable {
-        System.out.println("asdfasdfasdf");
         String key = a + ", " + b;
         Complex complex= cache.get(key);
         if (complex == null) {
