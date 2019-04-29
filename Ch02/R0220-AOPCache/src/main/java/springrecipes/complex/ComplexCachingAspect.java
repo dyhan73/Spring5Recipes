@@ -10,7 +10,12 @@ import java.util.concurrent.ConcurrentHashMap;
 @Aspect
 public class ComplexCachingAspect {
 
-    private final Map<String, Complex> cache = new ConcurrentHashMap<>();
+    private Map<String, Complex> cache = new ConcurrentHashMap<>();
+
+    public void setCache(Map<String, Complex> cache) {
+        this.cache.clear();
+        this.cache.putAll(cache);
+    }
 
     @Around("call(public Complex.new(int, int)) && args(a, b)")
     public Object cacheAround(ProceedingJoinPoint joinPoint, int a, int b) throws Throwable {
