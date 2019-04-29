@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
+//@EnableLoadTimeWeaving(aspectjWeaving = EnableLoadTimeWeaving.AspectJWeaving.ENABLED )
+//@EnableSpringConfigured
 @ComponentScan
 public class CalculatorConfig {
 
@@ -22,4 +24,11 @@ public class CalculatorConfig {
         complexCachingAspect.setCache(cache);
         return complexCachingAspect;
     }
+
+//    @Bean
+//    public ComplexFormatter complexFormatter() {
+//        return new ComplexFormatter();
+//    }
+
+
 }
